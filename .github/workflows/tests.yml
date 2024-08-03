@@ -7,31 +7,31 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest] # (macos-latest, windows-latest) 2.x-dev is under development
+        os: [ubuntu-latest, macos-latest, windows-latest]
         php: ['8.1', '8.2', '8.3']
-        dependency-version: [prefer-lowest, prefer-stable]
-        parallel: ['', '--parallel']
+        dependency-version: [ prefer-stable ]
+        parallel: [ '', '--parallel' ]
 
     name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }} - ${{ matrix.parallel }}
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php }}
-        tools: composer:v2
-        coverage: none
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
 
-    - name: Setup Problem Matches
-      run: |
-        echo "::add-matcher::${{ runner.tool_cache }}/php.json"
-        echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+      - name: Setup Problem Matches
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-    - name: Install PHP dependencies
-      run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress --ansi
+      - name: Install PHP dependencies
+        run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress --ansi
 
-    - name: Unit Tests
-      run: composer test:unit
+      - name: Unit Tests
+        run: composer test:unit
