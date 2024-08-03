@@ -74,9 +74,21 @@ expect('App\Providers')
     ->not->toNotUseProfanity()
 ```
 
+If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
+will allow you to click the file and be taken straight to the line that contains profanity:
+
+```bash
+Expecting 'tests/Fixtures/HasProfanityInComment.php' to not use profanity.
+at tests/Fixtures/HasProfanityInComment.php:10
+
+  Tests:    1 failed (1 assertions)
+  Duration: 0.06s
+```
+
 ## Contributing
 Contributions to the package are more than welcome as there's bound to be extra words that need adding. Feel free to 
 submit a Pull Request with any additions. If you have any issues using the package, then please open an Issue. 
 
-## Useful Links
+## Useful Links & Credit
 - [PestPHP](https://pestphp.com/)
+- Thanks to [`surge-ai/profanity`](https://github.com/surge-ai/profanity) for the original list of words 
