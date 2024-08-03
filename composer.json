@@ -1,6 +1,6 @@
 {
     "name": "jonpurvis/profanify",
-    "description": "My awesome plugin",
+    "description": "A PestPHP Plugin to Help Catch Profanity in Your Applications.",
     "keywords": [
         "php",
         "framework",
