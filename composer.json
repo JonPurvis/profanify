@@ -1,5 +1,5 @@
 {
-    "name": "pestphp/pest-plugin-template",
+    "name": "jonpurvis/profanify",
     "description": "My awesome plugin",
     "keywords": [
         "php",
@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Pest\\PluginName\\": "src/"
+            "JonPurvis\\Profanify\\": "src/",
+            "Tests\\Fixtures\\": "tests/Fixtures"
         },
         "files": [
             "src/Autoload.php"
