@@ -6,3 +6,8 @@ it('passes if a file contains no profanity', function () {
     expect('Tests\Fixtures\HasNoProfanity')
         ->toHaveNoProfanity();
 });
+
+it('passes if a file contains profanity but it is excluded', function () {
+    expect('Tests\Fixtures\HasProfanityInComment')
+        ->toHaveNoProfanity(excluding: ['shit']);
+});
