@@ -82,6 +82,15 @@ expect('App\Providers')
     ->not->toHaveNoProfanity()
 ```
 
+There may also be times when you want to ignore certain phrases included in the profanity list. To do this, you can pass an `excluding` argument to the `toHaveNoProfanity` method. This argument should be an array of strings that you want to ignore. For example:
+
+```php
+expect('App')
+    ->toHaveNoProfanity(excluding: ['69']);
+```
+
+In the test above, the test would pass even if the word `69` was included in one of the tested files.
+
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
 will allow you to click the file and be taken straight to the line that contains profanity:
 
