@@ -22,15 +22,7 @@ works on your application. It also means your codebase is kept professional and 
 
 This is where Profanify comes in, the package makes it really easy to test your application for common swear words, that
 you may have forgotten about or had no idea they were in there in the first place. If you have your tests running as
-part of a CI/CD pipeline, then it should mean the pipeline will fail if there's any profanity in your codebase. 
-
-## Installation
-
-To install Profanify, you can run the following command in your project's root:
-
-```text
-composer require jonpurvis/profanify --dev
-```
+part of a CI/CD pipeline, then it should mean the pipeline will fail if there's any profanity in your codebase.
 
 ## Examples
 
@@ -65,7 +57,7 @@ following test:
 
 ```php
 expect('App')
-    ->toHaveNoProfanity()
+    ->toNotUseProfanity()
 ```
 
 The test suite would fail, because there's multiple usages of Profanity in one of the files. You don't have to only
@@ -73,13 +65,13 @@ test the whole application though, you could limit it to, for example, Controlle
 
 ```php
 expect('App\Http\Controllers')
-    ->toHaveNoProfanity()
+    ->toNotUseProfanity()
 ```
 
 You could even expect profanity, if you really wanted to:
 ```php
 expect('App\Providers')
-    ->not->toHaveNoProfanity()
+    ->not->toNotUseProfanity()
 ```
 
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
