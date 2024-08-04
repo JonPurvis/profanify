@@ -18,7 +18,7 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = []): ArchExpectatio
 
         $foundWords = array_filter($words, fn ($word): bool => preg_match('/\b'.preg_quote($word, '/').'\b/i', $fileContents) === 1);
 
-        return (array) $foundWords === [];
+        return $foundWords === [];
     },
     'to not use profanity',
     FileLineFinder::where(function (string $line) use (&$foundWords): bool {
