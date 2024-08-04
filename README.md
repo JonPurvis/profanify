@@ -24,6 +24,14 @@ This is where Profanify comes in, the package makes it really easy to test your 
 you may have forgotten about or had no idea they were in there in the first place. If you have your tests running as
 part of a CI/CD pipeline, then it should mean the pipeline will fail if there's any profanity in your codebase.
 
+## Installation
+
+To install Profanify, you can run the following command in your project's root:
+
+```text
+composer require jonpurvis/profanify --dev
+```
+
 ## Examples
 
 Let's take a look at how Profanify works. There's not much to it but because it's a PestPHP plugin, we can use the
@@ -57,7 +65,7 @@ following test:
 
 ```php
 expect('App')
-    ->toNotUseProfanity()
+    ->toHaveNoProfanity()
 ```
 
 The test suite would fail, because there's multiple usages of Profanity in one of the files. You don't have to only
@@ -65,13 +73,13 @@ test the whole application though, you could limit it to, for example, Controlle
 
 ```php
 expect('App\Http\Controllers')
-    ->toNotUseProfanity()
+    ->toHaveNoProfanity()
 ```
 
 You could even expect profanity, if you really wanted to:
 ```php
 expect('App\Providers')
-    ->not->toNotUseProfanity()
+    ->not->toHaveNoProfanity()
 ```
 
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
