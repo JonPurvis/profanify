@@ -7,16 +7,18 @@ use Pest\Arch\Expectations\Targeted;
 use Pest\Arch\Support\FileLineFinder;
 use PHPUnit\Architecture\Elements\ObjectDescription;
 
-expect()->extend('toHaveNoProfanity', fn (): ArchExpectation => Targeted::make(
+expect()->extend('toHaveNoProfanity', fn (array $excluding = []): ArchExpectation => Targeted::make(
     $this,
-    function (ObjectDescription $object) use (&$foundWords): bool {
+    function (ObjectDescription $object) use (&$foundWords, $excluding): bool {
         $words = include __DIR__.'/../Config/words.php';
+
+        $words = array_diff($words, $excluding);
 
         $fileContents = (string) file_get_contents($object->path);
 
         $foundWords = array_filter($words, fn ($word): bool => preg_match('/\b'.preg_quote($word, '/').'\b/i', $fileContents) === 1);
 
-        return (array) $foundWords === [];
+        return $foundWords === [];
     },
     'to not use profanity',
     FileLineFinder::where(function (string $line) use (&$foundWords): bool {

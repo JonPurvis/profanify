@@ -22,7 +22,7 @@ works on your application. It also means your codebase is kept professional and 
 
 This is where Profanify comes in, the package makes it really easy to test your application for common swear words, that
 you may have forgotten about or had no idea they were in there in the first place. If you have your tests running as
-part of a CI/CD pipeline, then it should mean the pipeline will fail if there's any profanity in your codebase. 
+part of a CI/CD pipeline, then it should mean the pipeline will fail if there's any profanity in your codebase.
 
 ## Installation
 
@@ -81,6 +81,15 @@ You could even expect profanity, if you really wanted to:
 expect('App\Providers')
     ->not->toHaveNoProfanity()
 ```
+
+There may also be times when you want to ignore certain phrases included in the profanity list. To do this, you can pass an `excluding` argument to the `toHaveNoProfanity` method. This argument should be an array of strings that you want to ignore. For example:
+
+```php
+expect('App')
+    ->toHaveNoProfanity(excluding: ['69']);
+```
+
+In the test above, the test would pass even if the word `69` was included in one of the tested files.
 
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
 will allow you to click the file and be taken straight to the line that contains profanity:
