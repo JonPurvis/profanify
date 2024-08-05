@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 use Pest\Arch\Exceptions\ArchExpectationFailedException;
 
+it('fails if a file contains profanity in class name', function () {
+    expect('Tests\Fixtures\HasProfanityInShitClass')
+        ->toHaveNoProfanity();
+})->throws(ArchExpectationFailedException::class);
+
 it('fails if a file contains profanity in a comment', function () {
     expect('Tests\Fixtures\HasProfanityInComment')
         ->toHaveNoProfanity();

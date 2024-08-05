@@ -11,12 +11,17 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = []): ArchExpectatio
     $this,
     function (ObjectDescription $object) use (&$foundWords, $excluding): bool {
         $words = include __DIR__.'/../Config/words.php';
+        $toleratedWords = include __DIR__.'/../Config/tolerated.php';
 
         $words = array_diff($words, $excluding);
 
         $fileContents = (string) file_get_contents($object->path);
 
-        $foundWords = array_filter($words, fn ($word): bool => preg_match('/\b'.preg_quote($word, '/').'\b/i', $fileContents) === 1);
+        foreach ($toleratedWords as $toleratedWord) {
+            $fileContents = str_replace($toleratedWord, '', $fileContents);
+        }
+
+        $foundWords = array_filter($words, fn ($word): bool => preg_match('/'.preg_quote($word, '/').'/i', $fileContents) === 1);
 
         return $foundWords === [];
     },
