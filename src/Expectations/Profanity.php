@@ -22,6 +22,6 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = []): ArchExpectatio
     },
     'to not use profanity',
     FileLineFinder::where(function (string $line) use (&$foundWords): bool {
-        return str_contains($line, (string) array_values($foundWords ?? [])[0]);
+        return str_contains(strtolower($line), (string) strtolower(array_values($foundWords ?? [])[0]));
     })
 ));
