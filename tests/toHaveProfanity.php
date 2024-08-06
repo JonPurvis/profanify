@@ -23,3 +23,8 @@ it('fails if a file contains profanity in a property', function () {
     expect('Tests\Fixtures\HasProfanityInProperty')
         ->toHaveNoProfanity();
 })->throws(ArchExpectationFailedException::class);
+
+it('fails if file contains profanity manually included', function () {
+    expect('Tests\Fixtures\HasUncoveredProfanity')
+        ->toHaveNoProfanity(including: ['dagnabbit']);
+})->throws(ArchExpectationFailedException::class);
