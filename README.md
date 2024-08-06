@@ -91,6 +91,14 @@ expect('App')
 
 In the test above, the test would pass even if the word `69` was included in one of the tested files.
 
+Or, you may want to test for profanity not included in the list. To do this, pass an `including` argument to the `toHaveNoProfanity` method. This argument should be an array of strings you also want to consider as profanity. For example:
+
+```php
+expect('App')
+    ->toHaveNoProfanity(including: ['dagnabbit']);
+```
+
+
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
 will allow you to click the file and be taken straight to the line that contains profanity:
 

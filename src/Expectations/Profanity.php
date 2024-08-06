@@ -7,10 +7,12 @@ use Pest\Arch\Expectations\Targeted;
 use Pest\Arch\Support\FileLineFinder;
 use PHPUnit\Architecture\Elements\ObjectDescription;
 
-expect()->extend('toHaveNoProfanity', fn (array $excluding = []): ArchExpectation => Targeted::make(
+expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $including = []): ArchExpectation => Targeted::make(
     $this,
-    function (ObjectDescription $object) use (&$foundWords, $excluding): bool {
+    function (ObjectDescription $object) use (&$foundWords, $excluding, $including): bool {
         $words = include __DIR__.'/../Config/words.php';
+
+        $words = array_merge($words, $including);
 
         $words = array_diff($words, $excluding);
 
