@@ -1337,7 +1337,6 @@ return [
     'shat',
     'she-male',
     'sheeeet',
-    'sheet',
     'sheister',
     'shemal3',
     'shemale',
