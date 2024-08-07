@@ -13,7 +13,10 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
         $words = include __DIR__.'/../Config/words.php';
         $toleratedWords = include __DIR__.'/../Config/tolerated.php';
 
-        $words = array_merge($words, $including);
+        $words = array_merge(
+            include __DIR__.'/../Config/words/en.php',
+            include __DIR__.'/../Config/words/it.php',
+        );
 
         $words = array_diff($words, $excluding);
 
