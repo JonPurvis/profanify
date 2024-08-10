@@ -11,5 +11,5 @@ return [
     'parse',
     'assign',
     'pass',
-    'analytics'
+    'analytics',
 ];
