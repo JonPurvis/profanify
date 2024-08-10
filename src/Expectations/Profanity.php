@@ -20,7 +20,7 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
         $fileContents = (string) file_get_contents($object->path);
 
         foreach ($toleratedWords as $toleratedWord) {
-            $fileContents = str_replace([$toleratedWord, ucwords($toleratedWord)], '', $fileContents);
+            $fileContents = str_replace($toleratedWord, '', strtolower($fileContents));
         }
 
         $foundWords = array_filter($words, fn ($word): bool => preg_match('/'.preg_quote($word, '/').'/i', $fileContents) === 1);
