@@ -10,7 +10,22 @@ use PHPUnit\Architecture\Elements\ObjectDescription;
 expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $including = []): ArchExpectation => Targeted::make(
     $this,
     function (ObjectDescription $object) use (&$foundWords, $excluding, $including): bool {
-        $words = include __DIR__.'/../Config/words.php';
+
+        $words = [];
+        $profanitiesDir = __DIR__.'/../Config/profanities';
+
+        if (($profanitiesFiles = scandir($profanitiesDir)) === false) {
+            return true;
+        }
+
+        $profanitiesFiles = array_diff($profanitiesFiles, ['.', '..']);
+        foreach ($profanitiesFiles as $profanitiesFile) {
+            $words = array_merge(
+                $words,
+                include "$profanitiesDir/$profanitiesFile"
+            );
+        }
+
         $toleratedWords = include __DIR__.'/../Config/tolerated.php';
 
         $words = array_merge($words, $including);
@@ -29,6 +44,6 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
     },
     'to not use profanity',
     FileLineFinder::where(function (string $line) use (&$foundWords): bool {
-        return str_contains(strtolower($line), strtolower(array_values($foundWords ?? [])[0]));
+        return str_contains(strtolower($line), strtolower((string) array_values($foundWords ?? [])[0]));
     })
 ));
