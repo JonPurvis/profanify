@@ -110,6 +110,9 @@ at tests/Fixtures/HasProfanityInComment.php:10
   Duration: 0.06s
 ```
 
+## Languages
+Another benefit of Profanify is that it supports multiple languages, not just English. Each language has its own configuration file but every language is checked whenever a test that uses the package is run.
+
 ## Contributing
 Contributions to the package are more than welcome as there's bound to be extra words that need adding. Feel free to 
 submit a Pull Request with any additions. If you have any issues using the package, then please open an Issue. 
