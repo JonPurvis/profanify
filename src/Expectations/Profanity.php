@@ -44,6 +44,6 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
     },
     'to not use profanity',
     FileLineFinder::where(function (string $line) use (&$foundWords): bool {
-        return str_contains(strtolower($line), strtolower(array_values($foundWords ?? [])[0]));
+        return str_contains(strtolower($line), strtolower((string) array_values($foundWords ?? [])[0]));
     })
 ));
