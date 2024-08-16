@@ -10,11 +10,22 @@ use PHPUnit\Architecture\Elements\ObjectDescription;
 expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $including = []): ArchExpectation => Targeted::make(
     $this,
     function (ObjectDescription $object) use (&$foundWords, $excluding, $including): bool {
-        $words = array_merge(
-            include __DIR__.'/../Config/en.php',
-            include __DIR__.'/../Config/it.php',
-        );
-        
+
+        $words = [];
+        $profanitiesDir = __DIR__.'/../Config/profanities';
+
+        if (($profanitiesFiles = scandir($profanitiesDir)) === false) {
+            return true;
+        }
+
+        $profanitiesFiles = array_diff($profanitiesFiles, ['.', '..']);
+        foreach ($profanitiesFiles as $profanitiesFile) {
+            $words = array_merge(
+                $words,
+                include "$profanitiesDir/$profanitiesFile"
+            );
+        }
+
         $toleratedWords = include __DIR__.'/../Config/tolerated.php';
 
         $words = array_merge($words, $including);
