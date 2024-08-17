@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-// SHOULD ALL WORDS BE lowercase!
+// Please ensure all words in this file are lowercase
 
 return [
     'class',
