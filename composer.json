@@ -12,7 +12,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "pestphp/pest": "^2.5",
         "pestphp/pest-plugin": "^2.0.1"
     },
