@@ -110,7 +110,7 @@ at tests/Fixtures/HasProfanityInComment.php:10
 ```
 
 By default, Profanify will scan all language files, which may cause some problems if a word in your language is fine but
-is listed as profane in another language (whether it be the whole word or . To combat this, you can specify a default language, which means only that file will be 
+is listed as profane in another language. To combat this, you can specify a default language, which means only that file will be 
 checked against when the test runs:
 
 ```php
