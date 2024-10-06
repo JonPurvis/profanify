@@ -98,7 +98,6 @@ expect('App')
     ->toHaveNoProfanity(including: ['dagnabbit']);
 ```
 
-
 If a test does fail because of Profanity, then the output will show the offending file and line. IDE's such as PHPStorm,
 will allow you to click the file and be taken straight to the line that contains profanity:
 
@@ -109,6 +108,17 @@ at tests/Fixtures/HasProfanityInComment.php:10
   Tests:    1 failed (1 assertions)
   Duration: 0.06s
 ```
+
+By default, Profanify will scan all language files, which may cause some problems if a word in your language is fine but
+is listed as profane in another language. To combat this, you can specify a default language, which means only that file will be 
+checked against when the test runs:
+
+```php
+expect('App')
+    ->toHaveNoProfanity(language: 'en');
+```
+
+The example above means that only profanity in `Config/profanities/en.php` file will be picked up. 
 
 ## Languages
 Profanify currently supports the following languages:

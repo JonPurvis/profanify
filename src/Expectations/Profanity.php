@@ -7,9 +7,9 @@ use Pest\Arch\Expectations\Targeted;
 use Pest\Arch\Support\FileLineFinder;
 use PHPUnit\Architecture\Elements\ObjectDescription;
 
-expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $including = []): ArchExpectation => Targeted::make(
+expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $including = [], $language = null): ArchExpectation => Targeted::make(
     $this,
-    function (ObjectDescription $object) use (&$foundWords, $excluding, $including): bool {
+    function (ObjectDescription $object) use (&$foundWords, $excluding, $including, $language): bool {
 
         $words = [];
         $profanitiesDir = __DIR__.'/../Config/profanities';
@@ -19,11 +19,19 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
         }
 
         $profanitiesFiles = array_diff($profanitiesFiles, ['.', '..']);
-        foreach ($profanitiesFiles as $profanitiesFile) {
-            $words = array_merge(
-                $words,
-                include "$profanitiesDir/$profanitiesFile"
-            );
+
+        if ($language) {
+            $specificLanguage = "$profanitiesDir/$language.php";
+            if (file_exists($specificLanguage)) {
+                $words = include $specificLanguage;
+            }
+        } else {
+            foreach ($profanitiesFiles as $profanitiesFile) {
+                $words = array_merge(
+                    $words,
+                    include "$profanitiesDir/$profanitiesFile"
+                );
+            }
         }
 
         $toleratedWords = include __DIR__.'/../Config/tolerated.php';
