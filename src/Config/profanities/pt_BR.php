@@ -50,7 +50,6 @@ return [
     'cretino',
     'trouxa',
     'burro',
-    'animal',
     'viado de merda',
     'escória',
     'nojentinho',
