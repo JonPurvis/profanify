@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-// Please ensure all words in this file are lowercase
-
 return [
     'dio accecato',
     'dio affogato nella merda',
