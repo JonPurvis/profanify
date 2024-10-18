@@ -12,4 +12,10 @@ return [
     'assign',
     'pass',
     'analytics',
+    'asset',
+    'password',
+    'mass',
+    'assignable',
+    'charset',
+    'transliterate',
 ];
