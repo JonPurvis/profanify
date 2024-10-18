@@ -17,5 +17,5 @@ return [
     'mass',
     'assignable',
     'charset',
-    'transliterate'
+    'transliterate',
 ];
