@@ -5,7 +5,6 @@ declare(strict_types=1);
 return [
     'عاهرة',
     'قواد',
-    'قواد',
     'ملاوي',
     'الخرا',
     'خرية',
@@ -29,5 +28,4 @@ return [
     'dor t9awd',
     'wjh lkhra',
     '3ahira',
-    'lmlawi',
 ];
