@@ -27,7 +27,7 @@
     },
     "require-dev": {
         "faissaloux/pest-plugin-inside": "^1.5.1",
-        "pestphp/pest-dev-tools": "^2.9"
+        "pestphp/pest-dev-tools": "^3.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
