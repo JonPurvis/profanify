@@ -146,7 +146,6 @@ return [
 
     // Extreme and creative Dutch insults
     'strontvlieg',
-    'reetkever',
     'lulhannes',
     'zeiksnor',
     'achterlijke aap',
