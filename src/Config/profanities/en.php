@@ -1308,6 +1308,9 @@ return [
     'salad tosser',
     'sambo',
     'sand nigger',
+    'sand niggers',
+    'sandnigger'
+    'sandniggers'
     'sausage jockey',
     'scamfuck',
     'schlong',
