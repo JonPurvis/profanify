@@ -1309,8 +1309,8 @@ return [
     'sambo',
     'sand nigger',
     'sand niggers',
-    'sandnigger'
-    'sandniggers'
+    'sandnigger',
+    'sandniggers',
     'sausage jockey',
     'scamfuck',
     'schlong',
