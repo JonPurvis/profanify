@@ -22,8 +22,8 @@ expect()->extend('toHaveNoProfanity', fn (array $excluding = [], array $includin
         if ($language) {
             $languages = is_string($language) ? [$language] : $language;
 
-            foreach ($languages as $language) {
-                $specificLanguage = "$profanitiesDir/$language.php";
+            foreach ($languages as $lang) {
+                $specificLanguage = "$profanitiesDir/$lang.php";
                 if (file_exists($specificLanguage)) {
                     $words = array_merge(
                         $words,
