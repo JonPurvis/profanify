@@ -118,7 +118,14 @@ expect('App')
     ->toHaveNoProfanity(language: 'en');
 ```
 
-The example above means that only profanity in `Config/profanities/en.php` file will be picked up. 
+The example above means that only profanity in `Config/profanities/en.php` file will be picked up.
+
+```php
+expect('App')
+    ->toHaveNoProfanity(language: ['en', 'ar']);
+```
+
+This will check for profanities in both languages `en` and `ar`.
 
 ## Languages
 Profanify currently supports the following languages:
