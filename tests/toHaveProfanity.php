@@ -33,3 +33,8 @@ it('fails if file contains profanity when a specific language has been set', fun
     expect('Tests\Fixtures\HasProfanityInComment')
         ->toHaveNoProfanity(language: 'en');
 })->throws(ArchExpectationFailedException::class);
+
+it('fails if file contains profanity of multiple specified language', function () {
+    expect('Tests\Fixtures\HasProfanityInComment')
+        ->toHaveNoProfanity(language: ['en', 'ar']);
+})->throws(ArchExpectationFailedException::class);
