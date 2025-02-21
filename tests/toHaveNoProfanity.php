@@ -21,3 +21,8 @@ it('passes if a language is specified and a file contains profanity in another l
     expect('Tests\Fixtures\HasDifferentLanguageProfanity')
         ->toHaveNoProfanity(language: 'en');
 });
+
+it('passes if file does not contain profanity from any specified languages', function () {
+    expect('Tests\Fixtures\HasDifferentLanguageProfanity')
+        ->toHaveNoProfanity(language: ['en', 'ar']);
+});
