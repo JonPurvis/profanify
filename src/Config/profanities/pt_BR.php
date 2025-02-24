@@ -75,5 +75,5 @@ return [
     'brioco',
     'mongo',
     'mongoloide',
-    'mongol'
+    'mongol',
 ];
