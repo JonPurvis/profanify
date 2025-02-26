@@ -18,4 +18,5 @@ return [
     'assignable',
     'charset',
     'transliterate',
+    'assert',
 ];
