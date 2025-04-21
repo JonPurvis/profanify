@@ -130,11 +130,12 @@ This will check for profanities in both languages `en` and `ar`.
 ## Languages
 Profanify currently supports the following languages:
 
+- Arabic
+- Danish
+- Dutch
 - English
 - Italian
-- Arabic
 - Portuguese
-- Dutch
 
 Each language has its own configuration file. If you'd like to add a language, please create a new configuration file.
 
