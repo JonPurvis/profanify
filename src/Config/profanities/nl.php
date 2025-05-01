@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 return [
     // General insults
-    'eikel',
     'hufter',
     'idioot',
     'mongool',
@@ -16,7 +15,6 @@ return [
     'lulletje',
     'trut',
     'zeikerd',
-    'pannenkoek',
 
     // Stronger insults
     'teringlijer',
