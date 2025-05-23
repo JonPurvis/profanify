@@ -1,4 +1,4 @@
-This repository contains the Pest Plugin Type Coverage.
+This repository contains the Pest Plugin for Profanity.
 
 > If you want to start testing your application with Pest, visit the main **[Pest Repository](https://github.com/pestphp/pest)**.
 
