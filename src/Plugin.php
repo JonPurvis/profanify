@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Pest\Profanity;
 
+use Pest\Contracts\Plugins\HandlesOriginalArguments;
+use Pest\Plugins\Concerns\HandleArguments;
 use Pest\Profanity\Contracts\Logger;
 use Pest\Profanity\Logging\JsonLogger;
 use Pest\Profanity\Logging\NullLogger;
 use Pest\Profanity\Support\ConfigurationSourceDetector;
-use Pest\Contracts\Plugins\HandlesOriginalArguments;
-use Pest\Plugins\Concerns\HandleArguments;
 use Pest\TestSuite;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;

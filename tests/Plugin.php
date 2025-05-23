@@ -17,9 +17,10 @@ test('output', function () {
         ->and($output->fetch())->toContain(
             '.. OK',
             '.. pr12(bollocks)',
-            '.. pr9(shit), pr11(shit), pr13(shit), pr15(shit)',
+            '.. pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
             '.. pr12(arse)',
             '.. pr12(fuck)',
+            '.. pr12(møgso), pr13(bollocks)',
             '.. pr12(nobhead)',
         );
 });
@@ -37,9 +38,10 @@ test('compact output', function () {
     expect(fn () => $plugin->handleOriginalArguments(['--profanity', '--compact']))->toThrow(Exception::class, 1)
         ->and($output->fetch())->toContain(
             '.. pr12(bollocks)',
-            '.. pr9(shit), pr11(shit), pr13(shit), pr15(shit)',
+            '.. pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
             '.. pr12(arse)',
             '.. pr12(fuck)',
+            '.. pr12(møgso), pr13(bollocks)',
             '.. pr12(nobhead)',
         )
         ->and($output->fetch())->not->toContain(
@@ -75,7 +77,7 @@ test('include word', function () {
 
     expect(fn () => $plugin->handleOriginalArguments(['--profanity', '--include=elephpant']))->toThrow(Exception::class, 1)
         ->and($output->fetch())->toContain(
-            ', pr17(elephpant)',
+            ', pr20(elephpant)',
         );
 });
 
@@ -91,10 +93,10 @@ test('specific language', function () {
 
     expect(fn () => $plugin->handleOriginalArguments(['--profanity', '--language=da']))->toThrow(Exception::class, 1)
         ->and($output->fetch())->toContain(
-            '.. pr7(møgso)',
+            '.. pr12(møgso)',
         )
         ->and($output->fetch())->not->toContain(
-            '.. pr8(bollocks)'
+            '.. pr13(bollocks)'
         );
 });
 
