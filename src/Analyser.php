@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JonPurvis\Profanify;
+namespace Pest\Profanity;
 
 use Closure;
 
@@ -15,7 +15,7 @@ final class Analyser
      * Analyse the code for profanity.
      *
      * @param  array<int, string>  $files
-     * @param  \Closure(\JonPurvis\Profanify\Result): void  $callback
+     * @param  \Closure(\Pest\Profanity\Result): void  $callback
      * @param  array<string>  $excludingWords
      * @param  array<string>  $includingWords
      * @param  string|array<string>|null  $language

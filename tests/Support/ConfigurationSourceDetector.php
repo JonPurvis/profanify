@@ -1,6 +1,6 @@
 <?php
 
-use JonPurvis\Profanify\Support\ConfigurationSourceDetector;
+use Pest\Profanity\Support\ConfigurationSourceDetector;
 
 it('detects the source of the application', function () {
     $sources = ConfigurationSourceDetector::detect();

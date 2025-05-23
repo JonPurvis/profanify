@@ -1,6 +1,6 @@
 <?php
 
-use JonPurvis\Profanify\Plugin;
+use Pest\Profanity\Plugin;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 test('output', function () {

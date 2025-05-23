@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JonPurvis\Profanify\Support;
+namespace Pest\Profanity\Support;
 
 use PHPUnit\TextUI\CliArguments\Builder;
 use PHPUnit\TextUI\CliArguments\XmlConfigurationFileFinder;

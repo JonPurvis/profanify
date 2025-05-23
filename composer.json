@@ -1,6 +1,6 @@
 {
-    "name": "jonpurvis/profanify",
-    "description": "A PestPHP Plugin to Help Catch Profanity in Your Applications.",
+    "name": "pestphp/pest-plugin-profanify",
+    "description": "The Pest Profanity Plugin",
     "keywords": [
         "php",
         "framework",
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JonPurvis\\Profanify\\": "src/"
+            "Pest\\Profanity\\": "src/"
         }
     },
     "require-dev": {
@@ -48,7 +48,7 @@
     "extra": {
         "pest": {
             "plugins": [
-                "JonPurvis\\Profanify\\Plugin"
+                "Pest\\Profanity\\Plugin"
             ]
         }
     }

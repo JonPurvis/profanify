@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JonPurvis\Profanify\Logging;
+namespace Pest\Profanity\Logging;
 
-use JonPurvis\Profanify\Contracts\Logger;
+use Pest\Profanity\Contracts\Logger;
 
 /**
  * @internal

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JonPurvis\Profanify\Contracts;
+namespace Pest\Profanity\Contracts;
 
 /**
  * @internal

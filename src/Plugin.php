@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace JonPurvis\Profanify;
+namespace Pest\Profanity;
 
-use JonPurvis\Profanify\Contracts\Logger;
-use JonPurvis\Profanify\Logging\JsonLogger;
-use JonPurvis\Profanify\Logging\NullLogger;
-use JonPurvis\Profanify\Support\ConfigurationSourceDetector;
+use Pest\Profanity\Contracts\Logger;
+use Pest\Profanity\Logging\JsonLogger;
+use Pest\Profanity\Logging\NullLogger;
+use Pest\Profanity\Support\ConfigurationSourceDetector;
 use Pest\Contracts\Plugins\HandlesOriginalArguments;
 use Pest\Plugins\Concerns\HandleArguments;
 use Pest\TestSuite;
