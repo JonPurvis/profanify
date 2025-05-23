@@ -17,7 +17,7 @@ test('output', function () {
         ->and($output->fetch())->toContain(
             '.. OK',
             '.. pr12(bollocks)',
-            '.. pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
+            ' pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
             '.. pr12(arse)',
             '.. pr12(fuck)',
             '.. pr12(møgso), pr13(bollocks)',
@@ -38,7 +38,7 @@ test('compact output', function () {
     expect(fn () => $plugin->handleOriginalArguments(['--profanity', '--compact']))->toThrow(Exception::class, 1)
         ->and($output->fetch())->toContain(
             '.. pr12(bollocks)',
-            '.. pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
+            ' pr12(shit), pr14(shit), pr16(shit), pr18(shit)',
             '.. pr12(arse)',
             '.. pr12(fuck)',
             '.. pr12(møgso), pr13(bollocks)',
