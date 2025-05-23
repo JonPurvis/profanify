@@ -8,25 +8,22 @@
         "unit",
         "test",
         "testing",
-        "plugin"
+        "plugin",
+        "profanity"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "pestphp/pest": "^3.0",
         "pestphp/pest-plugin": "^3.0"
     },
     "autoload": {
         "psr-4": {
-            "JonPurvis\\Profanify\\": "src/",
-            "Tests\\Fixtures\\": "tests/Fixtures"
-        },
-        "files": [
-            "src/Autoload.php"
-        ]
+            "JonPurvis\\Profanify\\": "src/"
+        }
     },
     "require-dev": {
         "faissaloux/pest-plugin-inside": "^1.6",
+        "pestphp/pest": "^3.0",
         "pestphp/pest-dev-tools": "^3.0"
     },
     "minimum-stability": "dev",
@@ -39,17 +36,20 @@
         }
     },
     "scripts": {
-        "refacto": "rector",
         "lint": "pint",
-        "test:refacto": "rector --dry-run",
         "test:lint": "pint --test",
-        "test:types": "phpstan analyse --ansi",
         "test:unit": "pest --colors=always",
         "test": [
-            "@test:refacto",
             "@test:lint",
-            "@test:types",
             "@test:unit"
-        ]
+        ],
+        "profanity": "pest --profanity"
+    },
+    "extra": {
+        "pest": {
+            "plugins": [
+                "JonPurvis\\Profanify\\Plugin"
+            ]
+        }
     }
 }

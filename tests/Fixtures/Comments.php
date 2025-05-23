@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Fixtures;
 
-class HasProfanityInProperty
+/**
+ * @internal
+ */
+final class Comments
 {
-    protected string $fuck;
+    // arse
 }
