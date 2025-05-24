@@ -100,6 +100,13 @@ test('specific language', function () {
         );
 });
 
+test('config files return lowercase and unique values', function () {
+    expect('src/Config')
+        ->toReturnLowercase()
+        ->toReturnUnique()
+        ->toBeOrdered();
+});
+
 test('json output', function () {
     $output = new BufferedOutput;
     $plugin = new class($output) extends Plugin
